@@ -5,7 +5,9 @@ This repository is set up as a LaTeX `book` for long-form literature notes.
 ## Structure
 
 - `main.tex`: master document
-- `papers/<year>/`: one `.tex` file per paper (each file should define one `\section{...}`)
+- `projects/`: one `.tex` file per project
+- `papers/<year>/`: one `.tex` file per paper (year folders are for organization only)
+- `references.bib`: Zotero auto-exported bibliography
 
 ## Build
 
@@ -17,6 +19,34 @@ make pdf
 
 This compiles `main.tex` into `main.pdf`.
 
+## Add a New Project
+
+1. Add one file for the project:
+
+   ```bash
+   touch projects/<project-name>.tex
+   ```
+
+2. Put your project note content inside that file, starting with:
+
+   ```tex
+   \project{Your Project Title}
+   ```
+
+3. Add an input line to `projects/includes.tex`:
+
+   ```tex
+   \input{projects/<project-name>}
+   ```
+
+4. Re-run:
+
+   ```bash
+   make pdf
+   ```
+
+   Projects are manually listed in `projects/includes.tex`.
+
 ## Add a New Paper
 
 1. Create a year folder if needed, then add your paper note:
@@ -26,11 +56,25 @@ This compiles `main.tex` into `main.pdf`.
    touch papers/2025/<paper-slug>.tex
    ```
 
-2. Edit the new file and add your section + notes.
+2. Edit the new file and add your paper heading + notes, starting with:
+
+   ```tex
+   \paper{Your Paper Title}
+   ```
+
+   Then cite Zotero entries with keys from `references.bib`, e.g. `\parencite{samuel2025cie}` or `\textcite{samuel2025cie}`.
 3. Re-run:
 
    ```bash
    make pdf
    ```
 
-   The build auto-discovers all `papers/<year>/*.tex` files, and creates one chapter per year folder.
+   The build auto-discovers all `papers/*.tex` and `papers/<year>/*.tex` files.
+
+## Zotero Autolink Setup
+
+1. Install Better BibTeX in Zotero.
+2. Export your Zotero collection to `references.bib` using **Better BibTeX**.
+3. Enable **Keep updated** in the export dialog.
+
+Now `\parencite{...}` and `\textcite{...}` in your notes auto-link to bibliography entries in the PDF.
