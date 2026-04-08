@@ -22,12 +22,11 @@
 
 \addbibresource{references.bib}
 
-\newcounter{project}
-
 \newcommand{\project}[1]{%
-  \refstepcounter{project}%
-  \section*{Project \theproject: #1}%
-  \addcontentsline{toc}{section}{Project \theproject: #1}%
+  \refstepcounter{chapter}%
+  \chapter*{Project \thechapter: #1}%
+  \addcontentsline{toc}{chapter}{Project \thechapter: #1}%
+  \setcounter{section}{0}%
 }
 
 \newcommand{\paper}[1]{%

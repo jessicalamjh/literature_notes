@@ -1,1 +1,3 @@
-\paper{CIE: Controlling Language Model Text Generations Using Continuous Signals \parencite{samuel2025CIEControllingLanguage}}
+\paper{CIE: Controlling Language Model Text Generations Using Continuous Signals}
+
+\textcite{samuel2025CIEControllingLanguage} contribute a new way of controlling attributes in LLM text generations. Their method introduces just two small "control" embeddings, one for the lower bound of the attribute value and one for the upper bound. During the forward pass, they linearly interpolate between these two boundary control embeddings to compute the control embedding for the desired attribute value, then inject the interpolated control embedding into the LLM to subtly influence conditioning. Their experiments were limited to controlling output text length. 
