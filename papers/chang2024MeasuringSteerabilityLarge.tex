@@ -1,0 +1,5 @@
+\section{Measuring Steerability in Large Language Models}
+
+\textcite{chang2024MeasuringSteerabilityLarge} introduce metrics for measuring the steerability of LLMs on text rewriting, including sensitivity and directionality. They find that large LLMs are not always more steerable. All models exhibited poor directionality, potentially because the LLMs also try to achieve goals that were not explicitly stated ("side effects"), and over-sensitivity, tending to overshoot the requested degree of change. 
+
+I like this paper a lot. Adjusting the correlations by normalizing against the response obtained via an uninformative prompt makes great sense and is well justified. It would be nice to generalise these ideas to tasks where there is no source text, as well as to when user goals are not as easily quantifiable.
