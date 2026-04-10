@@ -6,7 +6,7 @@ This repository is set up as a LaTeX `book` for long-form literature notes.
 
 - `main.tex`: master document
 - `projects/`: one `.tex` file per project
-- `papers/<year>/`: one `.tex` file per paper (year folders are for organization only)
+- `papers/`: one `.tex` file per paper
 - `references.bib`: Zotero auto-exported bibliography
 
 ## Build
@@ -49,11 +49,10 @@ This compiles `main.tex` into `main.pdf`.
 
 ## Add a New Paper
 
-1. Create a year folder if needed, then add your paper note:
+1. Add your paper note file:
 
    ```bash
-   mkdir -p papers/2025
-   touch papers/2025/<paper-slug>.tex
+   touch papers/<paper-slug>.tex
    ```
 
 2. Edit the new file and add your paper heading + notes, starting with:
@@ -69,7 +68,7 @@ This compiles `main.tex` into `main.pdf`.
    make pdf
    ```
 
-   The build auto-discovers all `papers/*.tex` and `papers/<year>/*.tex` files.
+   The build auto-discovers all `papers/*.tex` files.
 
 ## Zotero Autolink Setup
 

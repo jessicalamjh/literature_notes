@@ -1,0 +1,9 @@
+\paper{Eliminating Agentic Workflow for Introduction Generation with Parametric Stage Tokens}
+
+\textcite{zhang2025EliminatingAgenticWorkflow} work on the task of generating the Introduction sections of scientific papers. They propose the Stage Token for Introduction Generation (STIG) framework, and use it to help LLMs generate full Introduction sections in a single pass rather than rely on multi-turn conversations or multiple agents. 
+
+Below are the most important reviewer reasons for rejecting this paper from ICLR 2026\footnote{\url{https://openreview.net/forum?id=y8vwDwygeM}}:
+\begin{itemize}
+    \item \textbf{Poor methodological novelty}: The STIG framework introduces new tokens to demarcate the start/end of the parts of a typical Introduction section (e.g., Background, Contributions) and fine-tunes these token embeddings. This is not new
+    \item \textbf{Inadequate evaluation}: BERTScore's context window is too limited for evaluating the quality of full sections. GPT-2 is way too outdated a model as a base for perplexity scores. Human correlation is required. The reviewers did not appreciate the newly suggested metrics because they are unfairly biased towards STIG. 
+\end{itemize}

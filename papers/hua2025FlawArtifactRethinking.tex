@@ -1,0 +1,7 @@
+\paper{Flaw or Artifact? Rethinking Prompt Sensitivity in Evaluating LLMs}
+
+\textcite{hua2025FlawArtifactRethinking} compare LLM-as-a-Judge against heuristic-based evaluation of response correctness, in terms of scoring stability and response generator ranking consistency across prompt variations. 
+
+For each benchmark dataset, they create 12 variants of each prompt based on manually constructed templates. They make 7 different LLMs respond to the prompts, then either use heuristics (e.g., regex matching, responder model's predicted log-likelihood when responding) or employ Gemini Flash 2.0 to judge the correctness of the response. They find the LLM-as-a-Judge with Gemini Flash 2.0 approach to be less sensitive to prompt variations, and that it leads to more consistent response model rankings. These results were observed also when using GPT-4o-mini as the judge. 
+
+The heuristic-based evaluation methods are not explained clearly enough. For the tasks that use log-likelihoods to elicit responses from the models, response correctness judging is straightforward because you can compare the elicited response against the ground truth directly. Direct comparison is hardly a heuristic, at least compared to the other tasks where you need to use a regex. Also, the prompt templates did not make it particularly clear that the model should output ONLY the letter identifier for the correct answer; so if they compute the distribution over the first response token, of course it is inaccurate.

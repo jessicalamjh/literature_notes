@@ -10,7 +10,7 @@ includes:
 		printf "%% Auto-generated. Do not edit.\n"; \
 		printf "\n%s\n" "\\chapter*{Papers}"; \
 		printf "%s\n" "\\addcontentsline{toc}{chapter}{Papers}"; \
-		for f in $$(ls $(PAPERS_DIR)/*.tex $(PAPERS_DIR)/*/*.tex 2>/dev/null); do \
+		for f in $$(ls $(PAPERS_DIR)/*.tex 2>/dev/null); do \
 			[ "$$f" = "$(PAPERS_INDEX)" ] && continue; \
 			[ -f "$$f" ] || continue; \
 			title="$$(sed -n 's/^\\paper{\(.*\)}$$/\1/p; q' "$$f")"; \
