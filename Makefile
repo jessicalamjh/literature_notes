@@ -8,12 +8,10 @@ PAPERS_INDEX=$(PAPERS_DIR)/includes.tex
 includes:
 	@{ \
 		printf "%% Auto-generated. Do not edit.\n"; \
-		printf "\n%s\n" "\\chapter*{Papers}"; \
-		printf "%s\n" "\\addcontentsline{toc}{chapter}{Papers}"; \
 		for f in $$(ls $(PAPERS_DIR)/*.tex 2>/dev/null); do \
 			[ "$$f" = "$(PAPERS_INDEX)" ] && continue; \
 			[ -f "$$f" ] || continue; \
-			title="$$(sed -n 's/^\\paper{\(.*\)}$$/\1/p; q' "$$f")"; \
+			title="$$(sed -n 's/^\\section{\(.*\)}$$/\1/p; q' "$$f")"; \
 			printf "%s\t%s\n" "$${title:-~}" "$$f"; \
 		done | sort -f -t "$$(printf '\t')" -k1,1 | while IFS="$$(printf '\t')" read -r _ f; do \
 			base="$${f%.tex}"; \

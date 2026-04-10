@@ -11,5 +11,4 @@
 *.toc
 *.pdf
 
-projects/*.tex
-!projects/includes.tex
+.vscode/

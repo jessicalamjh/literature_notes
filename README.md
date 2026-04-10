@@ -58,7 +58,7 @@ This compiles `main.tex` into `main.pdf`.
 2. Edit the new file and add your paper heading + notes, starting with:
 
    ```tex
-   \paper{Your Paper Title}
+   \section{Your Paper Title}
    ```
 
    Then cite Zotero entries with keys from `references.bib`, e.g. `\parencite{samuel2025cie}` or `\textcite{samuel2025cie}`.
